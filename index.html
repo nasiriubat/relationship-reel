@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reel Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="reel-viewer">
+            <video id="bgVideo" autoplay muted loop playsinline></video>
+            <div id="quoteOverlay" class="quote-overlay">
+                <p id="quoteText"></p>
+            </div>
+            <img class="logo" src="./logo.png" alt="">
+        </div>
+
+        <div class="meta-section">
+            <h3>Title & Hashtags</h3>
+            <textarea id="generatedTitle" rows="3" readonly></textarea>
+            <button id="copyTitleBtn">Copy Title</button>
+        </div>
+
+        <div class="meta-section">
+            <h3>Description (includes Quote)</h3>
+            <textarea id="generatedDescription" rows="5" readonly></textarea>
+            <button id="copyDescriptionBtn">Copy Description</button>
+        </div>
+
+        <div class="action-buttons">
+            <button id="nextBtn">Next Quote </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
