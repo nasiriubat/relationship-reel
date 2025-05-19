@@ -29,7 +29,7 @@ body {
 
 .logo {
     position: absolute;
-    top: 15%;
+    top: 17%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
@@ -55,7 +55,6 @@ body {
 }
 
 #quoteText {
-    font-family: cursive;
     line-height: 1.5;
     padding: 1rem;
     text-align: center;
@@ -69,7 +68,7 @@ body {
 .follow-text {
     color: #fff;
     position: absolute;
-    bottom: 15%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
