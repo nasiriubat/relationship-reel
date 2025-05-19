@@ -12,14 +12,13 @@ body {
     text-align: center;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     width: 100%;
 }
 
 .reel-viewer {
-    border: 5px solid #ffffff;
     height: 98vh;
-    width: 95%;
+    width: 100%;
     /* Making sure the viewer takes the full viewport height and width */
     display: flex;
     position: relative;
@@ -27,41 +26,82 @@ body {
     margin: 0 auto 20px auto;
     background-color: #000;
 }
-.logo{
+
+.logo {
     position: absolute;
-    top: 20%;
-    left: 24.5%;
+    top: 15%;
+    left: 50%;
     transform: translate(-50%, -50%);
-  
+    z-index: 1;
+    width: 85%;
 }
 
 #bgVideo {
-    opacity: .6;
+    opacity: .4;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the area, cropping if necessary */
+    object-fit: cover;
 }
 
 .quote-overlay {
-    /* display: flex;
-    align-items: center;
-    height: 100%; */
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(255, 255, 255);
-    text-align: center;
-    width: 95%;
-    padding: 10px;
-    background-color: rgba(196, 196, 196, 0.5); /* Semi-transparent background for text */
-    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+
 }
 
 #quoteText {
-    font-size: 2em;
+    font-family: cursive;
+    line-height: 1.5;
+    padding: 1rem;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 1em;
     margin: 0;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    background-color: rgba(24, 22, 22, .9);
+
+}
+
+.follow-text {
+    color: #fff;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem;
+
+    /* waving animation */
+    display: inline-block;
+    animation: wave 3s infinite ease-in-out;
+    transform-origin:  center;
+    text-align: center;
+}
+
+@keyframes wave {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(-50%, -50%) rotate(5deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(-5deg);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) rotate(5deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
 }
 
 .meta-section {
@@ -107,12 +147,14 @@ body {
 .action-buttons {
     display: flex;
     justify-content: space-between;
-    gap: 10px; /* Adds space between buttons if they are side-by-side */
+    gap: 10px;
+    /* Adds space between buttons if they are side-by-side */
     margin-top: 10px;
 }
 
 .action-buttons button {
-    flex-grow: 1; /* Make buttons share space if side-by-side */
+    flex-grow: 1;
+    /* Make buttons share space if side-by-side */
     padding: 10px 15px;
     font-size: 1em;
     border: none;
@@ -122,8 +164,10 @@ body {
 }
 
 .action-buttons #nextBtn {
-    background-color: #17a2b8; /* Info blue */
+    background-color: #17a2b8;
+    /* Info blue */
 }
+
 .action-buttons #nextBtn:hover {
     background-color: #117a8b;
 }
@@ -146,7 +190,8 @@ body {
 
 .quote-info-area p,
 .quote-info-area textarea {
-    width: calc(100% - 20px); /* Account for padding */
+    width: calc(100% - 20px);
+    /* Account for padding */
     padding: 8px;
     margin-bottom: 10px;
     border-radius: 4px;
@@ -162,7 +207,8 @@ body {
 
 .quote-info-area p#uiQuoteText {
     background-color: #e9ecef;
-    min-height: 40px; /* Ensure some height even if text is short */
+    min-height: 40px;
+    /* Ensure some height even if text is short */
 }
 
 .quote-info-area button {
@@ -171,7 +217,8 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #28a745; /* Green for copy */
+    background-color: #28a745;
+    /* Green for copy */
     color: white;
     display: block;
     width: 100%;
@@ -180,4 +227,4 @@ body {
 
 .quote-info-area button:hover {
     background-color: #218838;
-} 
+}

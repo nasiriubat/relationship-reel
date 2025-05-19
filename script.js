@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoElement = document.getElementById('bgVideo');
     const quoteTextElement = document.getElementById('quoteText'); // Overlay quote
     const nextBtn = document.getElementById('nextBtn');
-    
+
     const generatedTitleElement = document.getElementById('generatedTitle');
     const copyTitleBtn = document.getElementById('copyTitleBtn');
     const generatedDescriptionElement = document.getElementById('generatedDescription');
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         currentQuote = getRandomItem(quotes); // Simply get a random quote
         if (!currentQuote) { // Fallback if getRandomItem returns null (e.g. empty quotes array after load)
-             currentQuote = { quote: 'Could not retrieve a quote.', category: getRandomItem(defaultPixabayCategories) || 'general', title: 'Error', description: 'Quote retrieval failed.' };
+            currentQuote = { quote: 'Could not retrieve a quote.', category: getRandomItem(defaultPixabayCategories) || 'general', title: 'Error', description: 'Quote retrieval failed.' };
         }
         return currentQuote;
     }
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             videoCategory = getRandomItem(defaultPixabayCategories);
             console.warn('Current quote has no category or empty category, using random Pixabay category:', videoCategory);
         }
-         if (!videoCategory) videoCategory = 'nature'; // Absolute fallback
+        if (!videoCategory) videoCategory = 'nature'; // Absolute fallback
 
         const videoApiUrl = `https://pixabay.com/api/videos/?key=${pixabayApiKey}&q=${encodeURIComponent(videoCategory)}&orientation=vertical&per_page=100&min_duration=10&safesearch=true`;
         try {
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 console.warn('No videos found for category:', videoCategory, 'API Response:', data);
                 // Try one more time with a very generic category if the specific one fails
-                if (videoCategory !== 'backgrounds') { 
+                if (videoCategory !== 'backgrounds') {
                     console.log('Retrying with category: backgrounds');
                     currentQuote.category = 'backgrounds'; // Modify for the retry call.
                     await fetchVideo(); // Recursive call, be careful with this
@@ -97,12 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
             setVideoPlaceholder('Could not load video.');
         }
     }
-    
-    function setVideoPlaceholder(message = 'Loading video...'){
-        videoElement.poster = ''; 
-        videoElement.src = ''; 
+
+    function setVideoPlaceholder(message = 'Loading video...') {
+        videoElement.poster = '';
+        videoElement.src = '';
         console.info(message);
-        quoteTextElement.textContent = message; 
+        quoteTextElement.textContent = message;
         // Potentially update title/description too if video error is critical
         // generatedTitleElement.value = 'Video Error';
         // generatedDescriptionElement.value = message;
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         quoteTextElement.textContent = quote.quote; // Update overlay with quote.quote
-        
+
         // Use pre-defined title and description from the quote object
         generatedTitleElement.value = quote.title || 'Title not available.';
         generatedDescriptionElement.value = quote.description || 'Description not available.';
@@ -135,12 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Quotes not loaded yet, deferring content load.");
             return;
         }
-        if (quotes.length === 0){
+        if (quotes.length === 0) {
             console.error("Cannot load new content, quotes array is empty.");
-             quoteTextElement.textContent = 'Error: Quotes list is empty.';
+            quoteTextElement.textContent = 'Error: Quotes list is empty.';
             return;
         }
-        const quote = getRandomQuote(); 
+        const quote = getRandomQuote();
         updateMetaInfo(quote);
         fetchVideo();
     }
@@ -171,6 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     nextBtn.addEventListener('click', loadNewReelContent);
-    
+
     // Initial load is triggered after quotes are fetched
 }); 
